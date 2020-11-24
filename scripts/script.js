@@ -115,7 +115,6 @@ const showResult = (queryResponse) => {
 function NavigationClick() {
   let a = document.getElementsByClassName("c-nav__list--item");
   let b = document.getElementsByClassName("c-nav__list--item--border");
-
   for (let i = 0; i < a.length; i++) {
     a[i].addEventListener("click", async function ChosenCoin() {
       for (let j = 0; j < a.length; j++) {
@@ -156,6 +155,42 @@ function NavigationClick() {
           showResult(dataRBY);
           CreateChart(Coin[i].innerHTML);
           break;
+      }
+      let title = document.getElementsByClassName("c-main__title");
+      let price = document.getElementsByClassName("c-main__price");
+      let chart = document.getElementsByClassName("c-main__chart-container");
+      let list = document.getElementsByClassName("c-main__ul");
+      let listborder = document.getElementsByClassName(
+        "u-animation__list-border"
+      );
+      //hier beginnen het animation deel
+      if (title[0].className == "c-main__title u-animation__title") {
+        title[0].style.animation = "none";
+        title[0].offsetHeight; /* trigger reflow */
+        title[0].style.animation = null;
+      }
+      if (price[0].className == "c-main__price u-animation__price") {
+        price[0].style.animation = "none";
+        price[0].offsetHeight; /* trigger reflow */
+        price[0].style.animation = null;
+      }
+      if (chart[0].className == "c-main__chart-container u-animation__chart") {
+        chart[0].style.animation = "none";
+        chart[0].offsetHeight; /* trigger reflow */
+        chart[0].style.animation = null;
+      }
+      if (list[0].className == "c-main__ul u-animation__list") {
+        list[0].style.animation = "none";
+        list[0].offsetHeight; /* trigger reflow */
+        list[0].style.animation = null;
+      }
+      if (
+        listborder[0].className ==
+        "c-main__ul c-main__ul-border u-animation__list-border"
+      ) {
+        listborder[0].style.animation = "none";
+        listborder[0].offsetHeight; /* trigger reflow */
+        listborder[0].style.animation = null;
       }
     });
   }
